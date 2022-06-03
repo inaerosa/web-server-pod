@@ -15,9 +15,10 @@ body{
   background: white;
   border-radius: 5px;
   width: 70vw;
-  height: 80vh;
-  margin-left: 8vw;
+  height: 100%;
+  margin-left: 20vw;
   margin-top: 10vh;
+  padding-bottom: 30vh;
 }
 
 .menu{
@@ -26,6 +27,7 @@ body{
     height: 100vh;
     display: flex;
     border-top-right-radius: 5px;
+    position: fixed;
 }
   
 .menu-content {
@@ -46,6 +48,7 @@ li:hover{
   cursor:pointer;
   
 }
+
 .content h1 {
   text-align: center;
 }
