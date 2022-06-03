@@ -44,8 +44,8 @@ class ClientController{
         const json = await connection.promise().query(sql)
         const result = json[0]
         result.find(obj => {
-            let tot = obj.tot_register;
-            res.render('TotalClients', tot)
+
+            res.render('TotalClients', {obj})
         })
     }
 
