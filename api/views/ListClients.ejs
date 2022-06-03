@@ -2,5 +2,16 @@
 <%- include('partials/menu')%>
     <div class="content">
         <h1>Listagem</h1>
+        <% result.forEach(client => { %>
+            <p><%=client.CodigoDoCliente%></p>
+            <p><%=client.NomeDaEmpresa%></p>
+            <p><%=client.NomeDoContato%></p>
+            <p><%=client.CargoDoContato%></p>
+            <p><%=client.Cidade%></p>
+            <p><%=client.CEP%></p>
+            <p><%=client.Pais%></p>
+            <p><%=client.Telefone%></p>
+            <p><%=client.Fax%></p>
+        <% }) %>
     </div>
 <%- include('partials/footer') %>
