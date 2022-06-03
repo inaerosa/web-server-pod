@@ -1,6 +1,7 @@
 const connection = require('../db/connection')
 
 class ClientController{
+
     static getClients(req, res){
         const sql = "SELECT * FROM clientes";
         connection.query(sql, (err, result) => {
@@ -24,6 +25,10 @@ class ClientController{
         })
     }
 
+    static formNewClient(req, res) {
+        res.render('SaveClient')
+    }
+    
     static async saveClient(req, res){
         let client = req.body;
         let values = [client.CodigoDoCliente, client.NomeDaEmpresa, client.NomeDoContrato, client.CargoDoContrato, client.Endereco, client.Cidade, client.Regiao, client.CEP, client.Pais, client.Telefone, client.Fax]
