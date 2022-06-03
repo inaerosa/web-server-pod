@@ -1,4 +1,3 @@
-const { append } = require('express/lib/response');
 const connection = require('../db/connection')
 
 class ClientController{
@@ -17,6 +16,14 @@ class ClientController{
         })
     }
 
+    static getClientByName(req, res) {
+        let name = req.params;
+        const sql = `SELECT * FROM clientes WHERE NomeDoContato = ?`
+        connection.query(sql, name, (err, result) => {
+            res.json(result)
+        })
+    }
+
     static async saveClient(req, res){
         let client = req.body;
         let values = [client.CodigoDoCliente, client.NomeDaEmpresa, client.NomeDoContrato, client.CargoDoContrato, client.Endereco, client.Cidade, client.Regiao, client.CEP, client.Pais, client.Telefone, client.Fax]
@@ -24,14 +31,6 @@ class ClientController{
         const sql = `INSERT INTO clientes (CodigoDoCliente,NomeDaEmpresa,NomeDoContato,CargoDoContato,Endereço,Cidade, Região, CEP, Pais, Telefone, Fax) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
         await connection.promise().query(sql, values)
         res.json('Cliente cadastrado com sucesso')
-    }
-
-    static getClientByName(req, res) {
-        let name = req.params;
-        const sql = `SELECT * FROM clientes WHERE NomeDoContato = ?`
-        connection.query(sql, name, (err, result) => {
-            res.json(result)
-        })
     }
 
     static async getTotalClient(req,res){
