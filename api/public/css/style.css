@@ -1,0 +1,105 @@
+body{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: grey;
+  font-family: 'Kanit', sans-serif;
+}
+
+#container{
+  display: flex;
+
+}
+
+.content{
+  background: white;
+  border-radius: 5px;
+  width: 70vw;
+  height: 80vh;
+  margin-left: 8vw;
+  margin-top: 10vh;
+}
+
+.menu{
+    background: #2a356a;
+    width: 15vw;
+    height: 100vh;
+    display: flex;
+    border-top-right-radius: 5px;
+}
+  
+.menu-content {
+  padding: 20px;
+}
+
+.menu-content li{
+  padding-top: 4vw;
+  margin-left: 2vw;
+  text-align: center;
+  list-style: none;
+  color: white;
+  margin-top: 15%;
+}
+
+li:hover{
+  text-decoration: underline;
+  cursor:pointer;
+  
+}
+.content h1 {
+  text-align: center;
+}
+.content img{
+    width: 30vw;
+    height: 50vh;
+    margin-left: 20vw;
+    margin-top: 10vh;
+}
+
+.form-get-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-get-by span{
+  font-size: 1.2rem;
+}
+
+.form-get-by input{
+  width: 10vw;
+  height: 3vh;
+  border-radius: 3px;
+}
+
+.btn-submit-new{
+  margin-left: 33vw;
+  margin-top: 1vh;
+  padding: 0.5%;
+  background:#2a356a;
+  color: white;
+}
+
+#total-clients{
+  font-size: 5rem;
+  color: #2a356a;
+  text-align: center;
+}
+
+#form-new-client{
+  margin-left: 15vw;
+  margin-top: 10vh;
+}
+
+#form-spacing{
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+}
+
+#btn-new-client{
+  margin-left: 18vw;
+  margin-top: 10vh;
+  padding: 0.5%;
+  background: #2a356a;
+  color: white;
+}
