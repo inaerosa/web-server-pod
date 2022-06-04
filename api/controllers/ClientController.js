@@ -10,11 +10,14 @@ class ClientController{
         });
     }
 
+    static formSearchCode(req, res) {
+        res.render('SearchClientById')
+    }
     static getClientById(req, res){
-        let {id} = req.params;
+        const {id} = req.body;
         const sql = `SELECT * FROM clientes WHERE CodigoDoCliente = ?`
         connection.query(sql, id, (err, result) => {
-            res.json(result)
+            res.render('ListClients', {result})
         })
     }
 

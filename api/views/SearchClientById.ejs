@@ -1,0 +1,13 @@
+<%- include('partials/head') %>
+<%- include('partials/menu')%>
+    <div class="content">
+        <h1>Busque pelo Codigo</h1>
+        <form action="/clients/byCodeBody" method="post" >
+            <label for="id" class="form-get-by"><span class="details">Nome <br>
+                <input type="text" id="id" name="id" placeholder="Informe o Codigo">
+            </label>
+            <button class="btn-submit-new" type="submit">Buscar</button>
+        </form>
+ 
+    </div>
+
