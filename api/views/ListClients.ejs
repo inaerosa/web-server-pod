@@ -2,16 +2,39 @@
 <%- include('partials/menu')%>
     <div class="content">
         <h1>Listagem</h1>
-        <% result.forEach(client => { %>
-            <p><%=client.CodigoDoCliente%></p>
-            <p><%=client.NomeDaEmpresa%></p>
-            <p><%=client.NomeDoContato%></p>
-            <p><%=client.CargoDoContato%></p>
-            <p><%=client.Cidade%></p>
-            <p><%=client.CEP%></p>
-            <p><%=client.Pais%></p>
-            <p><%=client.Telefone%></p>
-            <p><%=client.Fax%></p>
-        <% }) %>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Epresa</th>
+                <th scope="col">Contato</th>
+                <th scope="col">Cargo</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">CEP</th>
+                <th scope="col">País</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Fax</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% result.forEach(client => { %>
+                <tr>
+                    <th scope="row"><%=client.CodigoDoCliente%></th>
+                    <td><%=client.NomeDaEmpresa%></td>
+                    <td><%=client.NomeDoContato%></td>
+                    <td><%=client.CargoDoContato%></td>
+                    <td><%=client.Cidade%></td>
+                    <td><%=client.CEP%></td>
+                    <td><%=client.Pais%></td>
+                    <td><%=client.Telefone%></td>
+                    <td><%=client.Fax%></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        
+
+      
+
     </div>
 <%- include('partials/footer') %>
