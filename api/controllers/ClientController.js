@@ -63,11 +63,19 @@ class ClientController{
         })
     }
 
+    static async formDeleteClient(req, res) {
+        res.render('DeleteClient')
+    }
     static async deleteClientById(req,res){
-        const {id} = req.params;
-        const sql = `DELETE FROM clientes WHERE CodigoDoCliente = ?`
-        await connection.promise().query(sql, id)
-        res.json('Cliente deletado com sucesso')
+        const {name} = req.body;
+        try{
+            const sql = `DELETE FROM clientes WHERE CodigoDoCliente = ?`
+            await connection.promise().query(sql, name)
+            res.render('/ListClients')
+        } catch(e){
+            console.log(e)
+        }
+        
     }
 }
     
