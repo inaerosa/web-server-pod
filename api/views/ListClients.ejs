@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody>
-                <% result.forEach(client => { %>
+            <% result.forEach(client => { %>
                 <tr>
                     <th scope="row"><%=client.CodigoDoCliente%></th>
                     <td><%=client.NomeDaEmpresa%></td>
@@ -32,9 +32,5 @@
               <% }) %>
             </tbody>
           </table>
-        
-
-      
-
     </div>
 <%- include('partials/footer') %>
