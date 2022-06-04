@@ -7,7 +7,8 @@ router
      .post("/", ClientController.saveClient)
      .get("/searchClientById", ClientController.formSearchCode)
      .post("/byCodeBody", ClientController.getClientById)
-     // .get("/byName/:id", ClientController.getClientByName)
+     .get("/searchClientByName", ClientController.formSearchName)
+     .post("/byNameBody", ClientController.getClientByName)
      .delete("/:id", ClientController.deleteClientById)
 
 module.exports = router

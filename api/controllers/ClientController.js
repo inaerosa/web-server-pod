@@ -21,11 +21,16 @@ class ClientController{
         })
     }
 
+    static formSearchName(req,res){
+        res.render('SearchClientByName')
+    }
+
     static getClientByName(req, res) {
-        let name = req.params;
+        let {name} = req.body;
+  
         const sql = `SELECT * FROM clientes WHERE NomeDoContato = ?`
         connection.query(sql, name, (err, result) => {
-            res.json(result)
+            res.render('ListClients', {result})
         })
     }
 
