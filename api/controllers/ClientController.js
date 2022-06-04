@@ -40,11 +40,17 @@ class ClientController{
     
     static async saveClient(req, res){
         let client = req.body;
-        let values = [client.CodigoDoCliente, client.NomeDaEmpresa, client.NomeDoContrato, client.CargoDoContrato, client.Endereco, client.Cidade, client.Regiao, client.CEP, client.Pais, client.Telefone, client.Fax]
+        console.log(client)
 
-        const sql = `INSERT INTO clientes (CodigoDoCliente,NomeDaEmpresa,NomeDoContato,CargoDoContato,Endereço,Cidade, Região, CEP, Pais, Telefone, Fax) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
-        await connection.promise().query(sql, values)
-        res.json('Cliente cadastrado com sucesso')
+        try{
+            let values = [client.CodigoDoCliente, client.NomeDaEmpresa, client.NomeDoContato, client.CargoDoContato, client.Endereço, client.Cidade, client.Região, client.CEP, client.Pais, client.Telefone, client.Fax]
+            const sql = `INSERT INTO clientes (CodigoDoCliente,NomeDaEmpresa,NomeDoContato,CargoDoContato,Endereço,Cidade, Região, CEP, Pais, Telefone, Fax) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
+            await connection.promise().query(sql, values)
+            res.redirect('/ListClients')
+        } catch (e){
+            console.log(e)
+        }
+        
     }
 
     static async getTotalClient(req,res){

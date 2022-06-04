@@ -3,6 +3,7 @@ const ClientController = require("../controllers/ClientController")
 router
      .get("/", ClientController.getClients)
      .get("/new", ClientController.formNewClient)
+     .post('/save', ClientController.saveClient)
      .get("/totalClients", ClientController.getTotalClient)
      .post("/", ClientController.saveClient)
      .get("/searchClientById", ClientController.formSearchCode)
