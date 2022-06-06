@@ -5,7 +5,6 @@ class ClientController{
     static getClients(req, res){
         const sql = "SELECT * FROM clientes";
         connection.query(sql, (err, result) => {
-            console.log(result)
             res.render('ListClients', {result})
         });
     }
