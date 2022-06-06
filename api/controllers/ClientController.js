@@ -46,7 +46,7 @@ class ClientController{
             let values = [client.CodigoDoCliente, client.NomeDaEmpresa, client.NomeDoContato, client.CargoDoContato, client.Endereço, client.Cidade, client.Região, client.CEP, client.Pais, client.Telefone, client.Fax]
             const sql = `INSERT INTO clientes (CodigoDoCliente,NomeDaEmpresa,NomeDoContato,CargoDoContato,Endereço,Cidade, Região, CEP, Pais, Telefone, Fax) VALUES (?,?,?,?,?,?,?,?,?,?,?)`
             await connection.promise().query(sql, values)
-            res.render('ListClients')
+            res.redirect('/')
         } catch (e){
             console.log(e)
         }
@@ -71,7 +71,7 @@ class ClientController{
         try{
             const sql = `DELETE FROM clientes WHERE CodigoDoCliente = ?`
             await connection.promise().query(sql, name)
-            res.render('/ListClients')
+            res.redirect('/')
         } catch(e){
             console.log(e)
         }
