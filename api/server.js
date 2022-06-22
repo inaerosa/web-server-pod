@@ -9,6 +9,6 @@ app.use(express.json());
 
 app.use("/clients", routes);
 
-app.listen(3000, () => {
-  console.log("Server running at 3000");
+app.listen(8080, () => {
+  console.log("Server running at 8080");
 });

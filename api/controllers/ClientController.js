@@ -17,12 +17,12 @@ class ClientController {
   }
 
   static async saveClient(req, res) {
-    let client = req.body;
+    let { client } = req.body;
     let values = [
       client.CodigoDoCliente,
       client.NomeDaEmpresa,
-      client.NomeDoContrato,
-      client.CargoDoContrato,
+      client.NomeDoContato,
+      client.CargoDoContato,
       client.Endereco,
       client.Cidade,
       client.Regiao,
@@ -31,7 +31,6 @@ class ClientController {
       client.Telefone,
       client.Fax,
     ];
-
     const sql = `INSERT INTO clientes (CodigoDoCliente,NomeDaEmpresa,NomeDoContato,CargoDoContato,Endereço,Cidade, Região, CEP, Pais, Telefone, Fax) VALUES (?,?,?,?,?,?,?,?,?,?,?)`;
     await connection.promise().query(sql, values);
     res.json("Cliente cadastrado com sucesso");
@@ -57,9 +56,13 @@ class ClientController {
 
   static async deleteClientById(req, res) {
     const { id } = req.params;
-    const sql = `DELETE FROM clientes WHERE CodigoDoCliente = ?`;
-    await connection.promise().query(sql, id);
-    res.json("Cliente deletado com sucesso");
+    try {
+      const sql = `DELETE FROM clientes WHERE CodigoDoCliente = ?`;
+      await connection.promise().query(sql, id);
+      res.json("Cliente deletado com sucesso");
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
